@@ -10,7 +10,7 @@ dataset = open(DATASET_FILE_NAME, 'r')
 output_dataset = open(ADAPTED_DATASET_NAME, 'w')
 
 dataset.readline()
-output_dataset.write('age,sex,chest pain type 1,chest pain type 2,chest pain type 3,fasting blood sugar > 120 mg/dl,resting electrocardiographic results type 1,resting electrocardiographic results type 2,exercise induced angina,slope type 1,slope type 1,target\n')
+output_dataset.write('age>40,sex,chest pain type 1,chest pain type 2,chest pain type 3,fasting blood sugar > 120 mg/dl,resting electrocardiographic results type 1,resting electrocardiographic results type 2,exercise induced angina,slope type 1,slope type 1,target\n')
 
 for line in dataset:
     values = parse_line(line)
@@ -18,6 +18,11 @@ for line in dataset:
         print('Unexpected: encountered a text line')
 
     else:
+        if values[0] > 40:
+            values[0] = 1
+        else:
+            values[0] = 0
+
         values.insert(2, 0)
         values.insert(2, 0)
 

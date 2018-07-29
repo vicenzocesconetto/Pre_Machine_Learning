@@ -38,8 +38,8 @@ print('Initializing engines')
 
 number_of_seen_cases = setup(LEARNED_VALUES_FILENAME, NUMBER_OF_SEEN_CASES_FILENAME, medical_conditions_weights)
 
-if len(medical_conditions_weights) == 0:
-    print('Seems like the files didnt exist')
+if len(medical_conditions_weights) != CSV_LINE_LENGTH - AMOUNT_OF_GOAL_VALUES:
+    print('Weight variables list is incomplete - either the files were empty or didn\'t exist')
     medical_conditions_weights = [0] * (CSV_LINE_LENGTH - AMOUNT_OF_GOAL_VALUES)
 
 command = 1
@@ -56,4 +56,4 @@ while command:
         with open(dataset_filename, 'r') as dataset:
             dataset.readline()
             for line in dataset:
-                dataset_line_values = parse_line(line)
+                number_of_seen_cases = learn(parse_line(line), medical_conditions_weights, number_of_seen_cases)
