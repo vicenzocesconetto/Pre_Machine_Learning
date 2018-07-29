@@ -30,7 +30,7 @@ CSV_LINE_LENGTH = 12
 
 AMOUNT_OF_GOAL_VALUES = 1
 
-dataset_filename = 'new-my-heart.csv'
+dataset_filename = 'adapted-my-heart.csv'
 
 medical_conditions_weights = list()
 
