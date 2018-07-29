@@ -7,7 +7,7 @@ def parse_line(line: str) -> list:
     try:
         parsed_line = [int(x) for x in parsed_line]
     except ValueError:
-        return parsed_line
+        pass
 
     return parsed_line
 
