@@ -3,17 +3,19 @@ from pre_ml_library import parse_line, build_line_for_writing
 
 DATASET_FILE_NAME = 'my-heart.csv'
 
-ADAPTED_DATASET_NAME = 'new-my-heart.csv'
+ADAPTED_DATASET_NAME = 'adapted-my-heart.csv'
 
 dataset = open(DATASET_FILE_NAME, 'r')
 
 output_dataset = open(ADAPTED_DATASET_NAME, 'w')
 
+dataset.readline()
+output_dataset.write('age,sex,chest pain type 1,chest pain type 2,chest pain type 3,fasting blood sugar > 120 mg/dl,resting electrocardiographic results type 1,resting electrocardiographic results type 2,exercise induced angina,slope type 1,slope type 1,target\n')
+
 for line in dataset:
     values = parse_line(line)
     if isinstance(values[0], str):
-        output_dataset.write('age,sex,chest pain type 1,chest pain type 2,chest pain type 3,fasting blood sugar > 120 mg/dl,resting electrocardiographic results type 1,resting electrocardiographic results type 2,exercise induced angina,slope type 1,slope type 1,target\n')
-        print('wrote a text line')
+        print('Unexpected: encountered a text line')
 
     else:
         values.insert(2, 0)
