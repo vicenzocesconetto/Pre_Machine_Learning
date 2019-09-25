@@ -6,7 +6,7 @@ What motivated me to build this repository was the excitement of building someth
 
 I was upset that every program I wrote had to be configured at every start up, so I built some nifty software that could remember configurations and preferences.
 
-The I realised "what is the point of remembering if you don't improve on what you know".
+Then I realised "what is the point of remembering if you don't improve on what you know".
 Thus, since I was a fan of the House™ series, I decided to build something that could see a lot of cases then tell the probability of a new patient having a specific disease. 
 
 Thus, that is what I am trying to build here.
